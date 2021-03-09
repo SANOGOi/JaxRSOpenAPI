@@ -21,20 +21,25 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
+import fr.istic.taa.jaxrs.rest.FicheResource;
 import fr.istic.taa.jaxrs.rest.PetResource;
+import fr.istic.taa.jaxrs.rest.UserResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
 public class TestApplication extends Application {
-
 
     @Override
     public Set<Class<?>> getClasses() {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
-
+        //Ressource Pet pour décrire la construction d'une api rest
         clazzes.add(PetResource.class);
+        //Ressource openapi
         clazzes.add(OpenApiResource.class);
-        
+
+        //ajout de la ressource user à l'app et de la fiche
+        clazzes.add(UserResource.class);
+        clazzes.add(FicheResource.class);
 
         return clazzes;
     }
